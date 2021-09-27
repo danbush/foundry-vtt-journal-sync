@@ -309,9 +309,9 @@ async function createJournalFolders(rootPath, parentFolderId) {
         }
 
         folderDetails = game.folders.filter(f => (f.data.type === "JournalEntry") && (f.data.name === thisFolderName) && (f.data.parent === parentFolderId));
-        Logger.logTrace(`createJournalFolders | folder: ${folder} thisFolderName: ${thisFolderName} folderDetails._id: ${folderDetails[0]._id} folderDetails: ${JSON.stringify(folderDetails)}`)
+        Logger.logTrace(`createJournalFolders | folder: ${folder} thisFolderName: ${thisFolderName} folderDetails#id: ${folderDetails[0]#id} folderDetails: ${JSON.stringify(folderDetails)}`)
 
-        createJournalFolders(folder, folderDetails[0]._id);
+        createJournalFolders(folder, folderDetails[0]#id);
     }
 }
 
@@ -340,8 +340,8 @@ async function importFile(file) {
             const path = pathArray[index];
             if (path != '') {
                 let folder = game.folders.filter(f => (f.data.type === "JournalEntry") && (f.data.name === path) && (f.data.parent === currentParent));
-                currentParent = folder[0]._id;
-                Logger.logTrace(`currentParent: '${currentParent}' path: '${path}' folder: '${JSON.stringify(folder)}' (${folder[0]._id}) '${typeof folder}' '${folder.length}'`);
+                currentParent = folder[0]#id;
+                Logger.logTrace(`currentParent: '${currentParent}' path: '${path}' folder: '${JSON.stringify(folder)}' (${folder[0]#id}) '${typeof folder}' '${folder.length}'`);
             }
         }
     }
